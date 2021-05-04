@@ -10,6 +10,8 @@ Install script for:
 # Requirements
 MesloLGS_NF font
 
+## 1. Download and Install
+
 - [MesloLGS NF Regular.ttf](
     https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf)
 - [MesloLGS NF Bold.ttf](
@@ -18,6 +20,8 @@ MesloLGS_NF font
     https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf)
 - [MesloLGS NF Bold Italic.ttf](
     https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf)
+    
+## 2. Set as font in your terminal
 
 # Execution
 
