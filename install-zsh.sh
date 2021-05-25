@@ -13,3 +13,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/.zshrc -o $HOME/.zshrc
 curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/.p10k.zsh -o $HOME/.p10k.zsh
+
+git clone --depth=1 https://github.com/amix/vimrc.git $HOME/.vim_runtime
+sh $HOME/.vim_runtime/install_awesome_vimrc.sh
