@@ -29,6 +29,20 @@ MesloLGS_NF font
 Manually type exit after oh-my-zsh installation, for complete instalation with plugins.
 
 ## Installation
+### Full
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/install-zsh.sh)"
+curl  https://raw.githubusercontent.com/niladi/zsh-install/master/install-zsh.sh | bash"
+```
+### With Arguments
+```
+curl  https://raw.githubusercontent.com/niladi/zsh-install/master/install-zsh.sh | bash -s -- --argument1 --argument2"
+```
+
+### Inside Dockerfile for vscode development container
+```
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends curl ca-certificates && \
+    su vscode -c "curl  https://raw.githubusercontent.com/niladi/zsh-install/master/install-zsh.sh | bash -s -- --vscode" && \
+    apt-get purge --autoremove -y curl && \
+    rm -rf /var/lib/apt/lists/*
 ```
