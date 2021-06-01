@@ -12,7 +12,7 @@ while [ "$1" != "" ]; do
         --skip-rc)
             SKIP_RC=true
             ;;
-        --update
+        --update)
             UPDATE=true
             ;;
         *)
