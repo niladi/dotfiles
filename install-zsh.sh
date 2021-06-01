@@ -3,7 +3,8 @@
 
 
 while [ "$1" != "" ]; do
-    echo "Penis $1"
+    PARAM=`echo $1 | awk -F= '{print $1}'`
+    VALUE=`echo $1 | awk -F= '{print $2}'`
     case $PARAM in
         -h | --help)
             exit
