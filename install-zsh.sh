@@ -1,13 +1,12 @@
 #!/bin/sh
 
 while [ "$1" != "" ]; do
-    echo $1
     case $PARAM in
         -h | --help)
             usage
             exit
             ;;
-        skip-rc)
+        --skip-rc)
             SKIP_RC=true
             ;;
         *)
