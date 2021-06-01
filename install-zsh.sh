@@ -3,6 +3,7 @@
 
 
 while [ "$1" != "" ]; do
+    echo "Penis $1"
     case $PARAM in
         -h | --help)
             exit
