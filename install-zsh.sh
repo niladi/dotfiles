@@ -15,6 +15,15 @@ while [ "$1" != "" ]; do
         --update)
             UPDATE=true
             ;;
+        --vscode)
+            VSCODE=true
+            ;;
+        --skip-vim)
+            SKIP_VIM=true
+            ;;
+        --default)
+            DEFAULT=true
+            ;;
         *)
             echo "ERROR: unknown parameter \"$PARAM\""
             exit 1
@@ -23,16 +32,29 @@ while [ "$1" != "" ]; do
     shift
 done
 
-if ! [ $UPDATE ];
+if [ $UPDATE ];
 then
-    sudo apt-get install zsh -y
-    chsh -s $(which zsh)
-
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    sudo apt-get install vim
-    
-else
     echo "Not installing anything, only updating" 
+else
+    if  [ $VSCODE ];
+    then
+        echo "skipping install"
+    else 
+        sudo apt-get install zsh -y
+        if [ $DEFAULT ];
+        then
+            chsh -s $(which zsh)
+        fi
+
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    fi
+    
+    if [ $SKIP_VIM ];
+    then
+        echo "not installing vim"
+    else
+        sudo apt-get install vim -y
+    fi
 fi
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -40,14 +62,19 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-if ! [ $SKIP_RC ];
+if [ $SKIP_RC ];
 then 
-  curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/.zshrc -o $HOME/.zshrc 
+    echo "Skipping Copying zshrc"
 else
-  echo "Skipping Copying zshrc"
+     curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/.zshrc -o $HOME/.zshrc 
 fi
 
 curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/.p10k.zsh -o $HOME/.p10k.zsh
 
-git clone --depth=1 https://github.com/amix/vimrc.git $HOME/.vim_runtime
-sh $HOME/.vim_runtime/install_awesome_vimrc.sh
+if [ $SKIP_VIM ];
+then
+    echo "not installing awsome vim"
+else
+    git clone --depth=1 https://github.com/amix/vimrc.git $HOME/.vim_runtime
+    sh $HOME/.vim_runtime/install_awesome_vimrc.sh
+fi
