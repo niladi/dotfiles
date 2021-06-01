@@ -1,6 +1,7 @@
 #!/bin/sh
 
 while [ "$1" != "" ]; do
+    echo $1
     case $PARAM in
         -h | --help)
             usage
