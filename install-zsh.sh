@@ -1,9 +1,10 @@
 #!/bin/sh
 
+
+
 while [ "$1" != "" ]; do
     case $PARAM in
         -h | --help)
-            usage
             exit
             ;;
         --skip-rc)
@@ -11,7 +12,6 @@ while [ "$1" != "" ]; do
             ;;
         *)
             echo "ERROR: unknown parameter \"$PARAM\""
-            usage
             exit 1
             ;;
     esac
