@@ -12,6 +12,8 @@ while [ "$1" != "" ]; do
         --skip-rc)
             SKIP_RC=true
             ;;
+        --update
+            UPDATE=true
         *)
             echo "ERROR: unknown parameter \"$PARAM\""
             exit 1
@@ -20,11 +22,17 @@ while [ "$1" != "" ]; do
     shift
 done
 
+if ! [ $UPDATE ];
+then
+    sudo apt-get install zsh -y
+    chsh -s $(which zsh)
 
-sudo apt-get install zsh -y
-chsh -s $(which zsh)
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    sudo apt-get install vim
+    
+else
+    echo "Not installing anything, only updating" 
+fi
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
