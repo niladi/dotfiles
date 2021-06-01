@@ -14,6 +14,7 @@ while [ "$1" != "" ]; do
             ;;
         --update
             UPDATE=true
+            ;;
         *)
             echo "ERROR: unknown parameter \"$PARAM\""
             exit 1
