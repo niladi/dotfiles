@@ -6,7 +6,7 @@ while [ "$1" != "" ]; do
             usage
             exit
             ;;
-        --skip-rc)
+        skip-rc)
             SKIP_RC=true
             ;;
         *)
