@@ -3,7 +3,7 @@
 # Connect to the server.. 
 # ssh username@server_ip
 mkdir ~/.local;
-WORKDIR=$HOME/tmp
+WORKDIR=$HOME/tmp;
 
 # Download source and build libevent
 cd $WORKDIR;
