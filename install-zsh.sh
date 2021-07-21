@@ -42,7 +42,7 @@ else
     if [ $USER ];
     then
         echo "installing without root privileges"
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/user-install-zsh-tmux.sh)"
+        curl  https://raw.githubusercontent.com/niladi/zsh-install/master/user-install-zsh-tmux.sh | bash"
     else
         if  [ $VSCODE ];
         then
