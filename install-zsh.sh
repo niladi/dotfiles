@@ -70,6 +70,7 @@ else
 fi
 
 curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/.p10k.zsh -o $HOME/.p10k.zsh
+curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/.tmux.conf -o $HOME/.tmux.conf 
 
 if [ $SKIP_VIM ];
 then
