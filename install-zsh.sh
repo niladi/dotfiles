@@ -24,6 +24,9 @@ while [ "$1" != "" ]; do
         --default)
             DEFAULT=true
             ;;
+        --user)
+            USER=true
+            ;;
         *)
             echo "ERROR: unknown parameter \"$PARAM\""
             exit 1
@@ -36,24 +39,30 @@ if [ $UPDATE ];
 then
     echo "Not installing anything, only updating" 
 else
-    if  [ $VSCODE ];
+    if [ $USER ];
     then
-        echo "skipping install"
-    else 
-        sudo apt-get install zsh -y
-        if [ $DEFAULT ];
+        echo "installing without root privileges"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/user-install-zsh-tmux.sh)"
+    else
+        if  [ $VSCODE ];
         then
-            chsh -s $(which zsh)
+            echo "skipping install"
+        else 
+            sudo apt-get install zsh tmux -y
+            if [ $DEFAULT ];
+            then
+                chsh -s $(which zsh)
+            fi
+
+            sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
         fi
 
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    fi
-    
-    if [ $SKIP_VIM ];
-    then
-        echo "not installing vim"
-    else
-        sudo apt-get install vim -y
+        if [ $SKIP_VIM ];
+        then
+            echo "not installing vim"
+        else
+            sudo apt-get install vim -y
+        fi
     fi
 fi
 
