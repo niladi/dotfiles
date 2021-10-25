@@ -35,14 +35,22 @@ while [ "$1" != "" ]; do
     shift
 done
 
-echo "Running with the following config:"
-echo "skip coping zshrc: $SKIP_RC"
-echo "update: $UPDATE"
-echo "vscode: $VSODE"
-echo "as non root: $USER"
-echo "set zsh as default: $DEFAULT"
-echo "skip vim: $SKIP_VIM"
+cat << EOF
+ ______    _     _____           _        _ _ 
+|___  /   | |   |_   _|         | |      | | |
+   / / ___| |__   | |  _ __  ___| |_ __ _| | |
+  / / / __| '_ \  | | | '_ \/ __| __/ _` | | |
+ / /__\__ \ | | |_| |_| | | \__ \ || (_| | | |
+/_____|___/_| |_|_____|_| |_|___/\__\__,_|_|_|
 
+Running with the following config:
+skip coping zshrc: $SKIP_RC
+update: $UPDATE
+vscode: $VSODE
+as non root: $USER
+set zsh as default: $DEFAULT
+skip vim: $SKIP_VIM
+EOF
 
 if [ $UPDATE ];
 then
