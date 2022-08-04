@@ -54,7 +54,7 @@ else
     else
         if  [ $VSCODE ];
         then
-            git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+            git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
         else 
             sudo apt-get install zsh tmux -y
             if [ $DEFAULT ];
@@ -62,7 +62,7 @@ else
                 chsh -s $(which zsh)
             fi
 
-            git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh 
+            git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh 
         fi
 
         if [ $SKIP_VIM ];
