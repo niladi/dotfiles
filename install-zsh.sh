@@ -62,7 +62,7 @@ else
                 chsh -s $(which zsh)
             fi
 
-            sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+            git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh 
         fi
 
         if [ $SKIP_VIM ];
