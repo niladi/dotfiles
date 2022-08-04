@@ -24,8 +24,8 @@ while [ "$1" != "" ]; do
         --default)
             DEFAULT=true
             ;;
-        --user)
-            USER=true
+        --non-root)
+            NON_ROOT=true
             ;;
         *)
             echo "ERROR: unknown parameter \"$PARAM\""
@@ -47,7 +47,7 @@ if [ $UPDATE ];
 then
     echo "Not installing anything, only updating" 
 else
-    if [ $USER ];
+    if [ $NON_ROOT ];
     then
         echo "installing without root privileges"
         curl  https://raw.githubusercontent.com/niladi/zsh-install/master/user-install-zsh-tmux.sh | bash
