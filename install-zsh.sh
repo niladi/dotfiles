@@ -54,7 +54,7 @@ else
     else
         if  [ $VSCODE ];
         then
-            echo "skipping install"
+            git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
         else 
             sudo apt-get install zsh tmux -y
             if [ $DEFAULT ];
