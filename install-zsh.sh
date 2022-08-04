@@ -39,7 +39,7 @@ echo "Running with the following config:"
 echo "skip coping zshrc: $SKIP_RC       "
 echo "update: $UPDATE                   "
 echo "vscode: $VSCODE                   "
-echo "as non root: $USER                "
+echo "as non root: $NON_ROOT            "
 echo "set zsh as default: $DEFAULT      "
 echo "skip vim: $SKIP_VIM               "
 
