@@ -117,7 +117,7 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-alias dc=docker-compose
+alias dc=docker compose
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
