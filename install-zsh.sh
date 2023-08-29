@@ -95,5 +95,5 @@ then
 else
     mkdir -p $HOME/.vim/pack/themes/start
     git clone https://github.com/dracula/vim.git $HOME/.vim/pack/themes/start/dracula
-    curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/.vimrc -o $HOME/.zshrc 
+    curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/.vimrc -o $HOME/.vimrc 
 fi
