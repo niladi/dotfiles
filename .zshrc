@@ -119,6 +119,10 @@ export EDITOR='vim'
 #
 alias dc=docker compose
 
+# Load custom.zshrc if it exists
+if [[ -f "$HOME/custom.zshrc" ]]; then
+    source "$HOME/custom.zshrc"
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
