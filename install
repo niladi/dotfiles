@@ -50,7 +50,7 @@ else
     if [ $NON_ROOT ];
     then
         echo "installing without root privileges"
-        curl  https://raw.githubusercontent.com/niladi/zsh-install/master/user-install-zsh-tmux.sh | bash
+        curl  https://raw.githubusercontent.com/niladi/dotfiles/master/user-install-zsh-tmux.sh | bash
     else
         if  [ $VSCODE ];
         then
@@ -83,11 +83,11 @@ if [ $SKIP_RC ];
 then 
     echo "Skipping Copying zshrc"
 else
-     curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/.zshrc -o $HOME/.zshrc 
+     curl -fsSL https://raw.githubusercontent.com/niladi/dotfiles/master/.zshrc -o $HOME/.zshrc 
 fi
 
-curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/.p10k.zsh -o $HOME/.p10k.zsh
-curl -fsSL https://raw.githubusercontent.com/niladi/zsh-install/master/.tmux.conf -o $HOME/.tmux.conf 
+curl -fsSL https://raw.githubusercontent.com/niladi/dotfiles/master/.p10k.zsh -o $HOME/.p10k.zsh
+curl -fsSL https://raw.githubusercontent.com/niladi/dotfiles/master/.tmux.conf -o $HOME/.tmux.conf 
 
 if [ $SKIP_VIM ];
 then
